@@ -1,0 +1,80 @@
+{
+	"name": "plg_editors-xtd_pagebreakghsvs",
+	"nameReal": "plg_editors-xtd_pagebreakghsvs",
+	"filename": "pagebreakghsvs",
+	"version": "2020.09.18",
+	"versionCompare": "",
+	"update": {
+		"type": "plugin",
+		"folder": "editors-xtd",
+		"client": "site",
+		"tag": "stable",
+		"targetplatform": ".*"
+	},
+	"releaseTxt": {
+		"title": "Joomla editors-xtd plugin PagebreakGhsvs"
+	},
+	"changelog": {
+		"projecturl": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs",
+		"infosDE": "",
+		"infosEN": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs#readme",
+		"docsDE": "",
+		"docsEN": "",
+		"lastTests": [
+			"PHP 7.4",
+			"PHP 8.0",
+			"Joomla 3.10",
+			"Joomla 4.0"
+		]
+	},
+	"minimumPhp": "7.4.2",
+	"maximumPhp": "8.99999.99999",
+	"minimumJoomla": "3.9.10",
+	"maximumJoomla": "4.9999.9999",
+	"allowDowngrades": "1",
+	"creationDate": "2019-07-20",
+	"licenseLong": "GNU General Public License version 3 or later; see LICENSE.txt.",
+	"copyright": "(C) 2019, G@HService Berlin Neukölln, Volkmar Volli Schlothauer (ghsvs.de)",
+	"author": {
+		"name": "G@HService Berlin Neukölln, Volkmar Volli Schlothauer",
+		"email": "",
+		"url": "https://ghsvs.de"
+	},
+	"contributors": [
+		{
+			"name": "G@HService Berlin Neukölln, Volkmar Volli Schlothauer",
+			"email": "",
+			"url": "https://ghsvs.de"
+		}
+	],
+	"bugs": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs/issues",
+	"homepage": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs#readme",
+	"keywords": [
+		"joomla",
+		"editors-xtd plugin",
+		"editor button",
+		"slides"
+	],
+	"private": false,
+	"description": "Joomla editor button. For pagebreakghsvs feature of system plugin bs3ghsvs. Insert shortcodes into editor/article text that will be rendered to slides/accordions.",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs.git"
+	},
+	"scripts": {
+		"g-build": "node build.js",
+		"g-npm-update-check": "ncu",
+		"g-ncu-override-json": "ncu -u"
+	},
+	"dependencies": {
+		"npm-check-updates": "^12.0.0"
+	},
+	"devDependencies": {
+		"adm-zip": "0.5.9",
+		"fs-extra": "10.0.0",
+		"path": "^0.12.7",
+		"rimraf": "3.0.2"
+	},
+	"browserslist": []
+}
