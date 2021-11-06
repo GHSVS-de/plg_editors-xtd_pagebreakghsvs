@@ -65,6 +65,7 @@ class plgButtonPagebreakGhsvs extends CMSPlugin
 			'PLG_XTD_PAGEBREAKGHSVS_SLIDER_TITLE2' => Text::_('PLG_XTD_PAGEBREAKGHSVS_SLIDER_TITLE2'),
 			'PLG_XTD_PAGEBREAKGHSVS_INSERTTAG' => Text::_('PLG_XTD_PAGEBREAKGHSVS_INSERTTAG'),
 			'PLG_XTD_PAGEBREAKGHSVS_MINIFIED_JS' => JDEBUG ? '' : '.min',
+			'[VERSION]' => '?' . time(),
 		);
 
 		foreach ($replaceWith as $replace => $with)
