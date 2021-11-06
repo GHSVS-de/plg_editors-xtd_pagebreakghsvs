@@ -2,8 +2,8 @@
 	"name": "plg_editors-xtd_pagebreakghsvs",
 	"nameReal": "plg_editors-xtd_pagebreakghsvs",
 	"filename": "pagebreakghsvs",
-	"version": "2020.09.18",
-	"versionCompare": "",
+	"version": "2021.11.06",
+	"versionCompare": "2020.09.18",
 	"update": {
 		"type": "plugin",
 		"folder": "editors-xtd",
