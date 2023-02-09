@@ -11,6 +11,8 @@ const releaseTxt = `${pathBuildKram}/build/release_no-changelog.txt`;
 const replaceXml = require(`${pathBuildKram}/build/replaceXml.js`);
 const helper = require(`${pathBuildKram}/build/helper.js`);
 
+const pc = require(`${pathBuildKram}/node_modules/picocolors`);
+
 let zipOptions = {};
 let from = "";
 let to = "";
