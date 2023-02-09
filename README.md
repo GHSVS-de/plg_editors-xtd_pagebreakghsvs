@@ -9,9 +9,8 @@
 - `cd /mnt/z/git-kram/plg_editors-xtd_pagebreakghsvs`
 
 ## node/npm updates/installation
-- `npm run g-npm-update-check` or (faster) `ncu`
-- `npm run g-ncu-override-json` (if needed) or (faster) `ncu -u`
-- `npm install` (if needed)
+- `npm run updateCheck`
+- `npm run update`
 
 ## Build installable ZIP package
 - `node build.js`
