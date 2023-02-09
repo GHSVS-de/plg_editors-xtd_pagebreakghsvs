@@ -1,8 +1,19 @@
-const fse = require('fs-extra');
+#!/usr/bin/env node
 const path = require('path');
-const chalk = require('chalk');
-const replaceXml = require('./build/replaceXml.js');
-const helper = require('./build/helper.js');
+
+/* Configure START */
+const pathBuildKram = path.resolve("../buildKramGhsvs");
+const updateXml = `${pathBuildKram}/build/update_no-changelog.xml`;
+// const changelogXml = `${pathBuildKram}/build/changelog.xml`;
+const releaseTxt = `${pathBuildKram}/build/release_no-changelog.txt`;
+/* Configure END */
+
+const replaceXml = require(`${pathBuildKram}/build/replaceXml.js`);
+const helper = require(`${pathBuildKram}/build/helper.js`);
+
+let zipOptions = {};
+let from = "";
+let to = "";
 
 const {
 	name,
@@ -12,7 +23,16 @@ const {
 
 const manifestFileName = `${filename}.xml`;
 const Manifest = `${__dirname}/package/${manifestFileName}`;
-const pathMedia = `./media`;
+let versionSub = '';
+
+let replaceXmlOptions = {
+	"xmlFile": "",
+	"zipFilename": "",
+	"checksum": "",
+	"dirname": __dirname,
+	"jsonString": "",
+	"versionSub": versionSub
+};
 
 (async function exec()
 {
@@ -20,88 +40,55 @@ const pathMedia = `./media`;
 		`./package`,
 		`./dist`,
 	];
-
 	await helper.cleanOut(cleanOuts);
 
-	console.log(chalk.cyanBright(`Be patient! Some copy actions!`));
-		await fse.copy(`${pathMedia}`, "./package/media"
-	).then(
-		answer => console.log(chalk.yellowBright(
-			`Copied ${pathMedia} to ./package/media.`))
-	);
+	await helper.mkdir('./package');
+	await helper.mkdir('./dist');
 
-	await fse.copy(`./src`, `./package`
-	).then(
-		answer => console.log(chalk.yellowBright(
-			`Copied "./src/*" into "./package".`))
-	);
+	from = `./media`;
+	to = `./package/media`;
+	await helper.copy(from, to);
 
-	if (!(await fse.exists("./dist")))
-	{
-    	await fse.mkdir("./dist"
-		).then(
-			answer => console.log(chalk.yellowBright(`Created "./dist".`))
-		);
-  }
+	from = `./src`;
+	to = `./package`;
+	await helper.copy(from, to);
 
 	const zipFilename = `${name}-${version}.zip`;
 
-	await replaceXml.main(Manifest, zipFilename);
-	await fse.copy(`${Manifest}`, `./dist/${manifestFileName}`).then(
-		answer => console.log(chalk.yellowBright(
-			`Copied "${manifestFileName}" to "./dist".`))
-	);
+	replaceXmlOptions.xmlFile = Manifest;
+	replaceXmlOptions.zipFilename = zipFilename;
 
-	// Create zip file and detect checksum then.
-	const zipFilePath = `./dist/${zipFilename}`;
+	await replaceXml.main(replaceXmlOptions);
+	await helper.copy(`${Manifest}`, `./dist/${manifestFileName}`);
 
-	const zip = new (require('adm-zip'))();
-	zip.addLocalFolder("package", false);
-	await zip.writeZip(`${zipFilePath}`);
-	console.log(chalk.cyanBright(chalk.bgRed(
-		`"./dist/${zipFilename}" written.`)));
+	// ## Create zip file and detect checksum then.
+	const zipFilePath = path.resolve(`./dist/${zipFilename}`);
 
-	const Digest = 'sha256'; //sha384, sha512
-	const checksum = await helper.getChecksum(zipFilePath, Digest)
-  .then(
-		hash => {
-			const tag = `<${Digest}>${hash}</${Digest}>`;
-			console.log(chalk.greenBright(`Checksum tag is: ${tag}`));
-			return tag;
-		}
-	)
-	.catch(error => {
-		console.log(error);
-		console.log(chalk.redBright(`Error while checksum creation. I won't set one!`));
-		return '';
-	});
+	zipOptions = {
+		"source": path.resolve("package"),
+		"target": zipFilePath
+	};
+	await helper.zip(zipOptions)
 
-	let xmlFile = 'update.xml';
-	await fse.copy(`./${xmlFile}`, `./dist/${xmlFile}`).then(
-		answer => console.log(chalk.yellowBright(
-			`Copied "${xmlFile}" to ./dist.`))
-	);
-	await replaceXml.main(`${__dirname}/dist/${xmlFile}`, zipFilename, checksum);
+	replaceXmlOptions.checksum = await helper._getChecksum(zipFilePath);
 
-	xmlFile = 'changelog.xml';
-	await fse.copy(`./${xmlFile}`, `./dist/${xmlFile}`).then(
-		answer => console.log(chalk.yellowBright(
-			`Copied "${xmlFile}" to ./dist.`))
-	);
-	await replaceXml.main(`${__dirname}/dist/${xmlFile}`, zipFilename, checksum);
+	// Bei diesen werden zuerst Vorlagen nach dist/ kopiert und dort erst "replaced".
+	for (const file of [updateXml, releaseTxt])
+	{
+		from = file;
+		to = `./dist/${path.win32.basename(file)}`;
+		await helper.copy(from, to)
 
-	xmlFile = 'release.txt';
-	await fse.copy(`./${xmlFile}`, `./dist/${xmlFile}`).then(
-		answer => console.log(chalk.yellowBright(
-			`Copied "${xmlFile}" to ./dist.`))
-	);
-	await replaceXml.main(`${__dirname}/dist/${xmlFile}`, zipFilename, checksum);
+		replaceXmlOptions.xmlFile = path.resolve(to);
+		await replaceXml.main(replaceXmlOptions);
+	}
 
 	cleanOuts = [
-		//`./package`,
+		`./package`
 	];
 	await helper.cleanOut(cleanOuts).then(
-		answer => console.log(chalk.cyanBright(chalk.bgRed(
-			`Finished. Good bye!`)))
+		answer => console.log(
+			pc.cyan(pc.bold(pc.bgRed(`Finished. Good bye!`)))
+		)
 	);
 })();
