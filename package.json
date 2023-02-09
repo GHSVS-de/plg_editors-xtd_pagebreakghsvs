@@ -2,8 +2,8 @@
 	"name": "plg_editors-xtd_pagebreakghsvs",
 	"nameReal": "plg_editors-xtd_pagebreakghsvs",
 	"filename": "pagebreakghsvs",
-	"version": "2021.11.06",
-	"versionCompare": "2020.09.18",
+	"version": "2023.02.09",
+	"versionCompare": "2021.11.06",
 	"update": {
 		"type": "plugin",
 		"folder": "editors-xtd",
@@ -13,10 +13,11 @@
 			"3.*",
 			"4.*"
 		],
-		"namespace": ""
+		"namespace": "GHSVS\\Plugin\\EditorsXtd\\PagebreakGhsvs",
+		"infourl": "https://github.com/GHSVS-de/plg_editors-xtd_inserttagsghsvs/releases"
 	},
 	"releaseTxt": {
-		"title": "Joomla editors-xtd plugin PagebreakGhsvs",
+		"title": "Joomla editors-xtd plugin PagebreakGhsvs. Editor button to insert special accordion markers.",
 		"requires": [
 			"plg_system_bs3ghsvs_bs5"
 		],
@@ -32,9 +33,8 @@
 		"lastTests":  [
 			"PHP 8.0",
 			"PHP 8.1",
-			"PHP 7.4",
 			"Joomla 3.10",
-			"Joomla 4.1"
+			"Joomla 4.2"
 		]
 	},
 	"minimumPhp": "7.4.2",
@@ -76,11 +76,6 @@
 		"update": "npm update --save-dev"
 	},
 	"dependencies": {},
-	"devDependencies": {
-		"adm-zip": "0.5.9",
-		"fs-extra": "10.0.0",
-		"path": "^0.12.7",
-		"rimraf": "3.0.2"
-	},
+	"devDependencies": {},
 	"browserslist": []
 }
