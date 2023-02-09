@@ -14,14 +14,14 @@
 			"4.*"
 		],
 		"namespace": "GHSVS\\Plugin\\EditorsXtd\\PagebreakGhsvs",
-		"infourl": "https://github.com/GHSVS-de/plg_editors-xtd_inserttagsghsvs/releases"
+		"infourl": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs/releases"
 	},
 	"releaseTxt": {
 		"title": "Joomla editors-xtd plugin PagebreakGhsvs. Editor button to insert special accordion markers.",
 		"requires": [
 			"plg_system_bs3ghsvs_bs5"
 		],
-		"uses": ["https://github.com/pinceladasdaweb/VCountdown"],
+		"uses": [],
 		"language": []
 	},
 	"changelog": {
