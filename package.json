@@ -2,24 +2,26 @@
 	"name": "plg_editors-xtd_pagebreakghsvs",
 	"nameReal": "plg_editors-xtd_pagebreakghsvs",
 	"filename": "pagebreakghsvs",
-	"version": "2023.02.09",
-	"versionCompare": "2021.11.06",
+	"version": "2023.11.12",
+	"versionCompare": "2023.02.09",
+	"versionSub": "",
 	"update": {
+		"infourl": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs{{thisRelease}}",
 		"type": "plugin",
 		"folder": "editors-xtd",
 		"client": "site",
 		"tag": "stable",
 		"targetplatform": [
 			"3.*",
-			"4.*"
+			"4.*",
+			"5.*"
 		],
-		"namespace": "GHSVS\\Plugin\\EditorsXtd\\PagebreakGhsvs",
-		"infourl": "https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs/releases"
+		"namespace": "GHSVS\\Plugin\\EditorsXtd\\PagebreakGhsvs"
 	},
 	"releaseTxt": {
 		"title": "Joomla editors-xtd plugin PagebreakGhsvs. Editor button to insert special accordion markers.",
 		"requires": [
-			"plg_system_bs3ghsvs_bs5"
+			"https://github.com/GHSVS-de/plg_system_pagebreaksliderghsvs/releases"
 		],
 		"uses": [],
 		"language": []
@@ -40,7 +42,7 @@
 	"minimumPhp": "7.4.2",
 	"maximumPhp": "8.99999.99999",
 	"minimumJoomla": "3.9.10",
-	"maximumJoomla": "4.9999.9999",
+	"maximumJoomla": "5.9999.9999",
 	"allowDowngrades": "1",
 	"creationDate": "2019-07-20",
 	"licenseLong": "GNU General Public License version 3 or later; see LICENSE.txt.",
@@ -64,7 +66,7 @@
 		"slides"
 	],
 	"private": false,
-	"description": "Joomla editor button. For pagebreakghsvs feature of system plugin bs3ghsvs. Insert shortcodes into editor/article text that will be rendered to slides/accordions.",
+	"description": "Joomla editor button. For pagebreakghsvs feature of system plugin plg_system_pagebreaksliderghsvs. Insert shortcodes into editor/article text that will be rendered to slides/accordions.",
 	"license": "GPL-3.0",
 	"repository": {
 		"type": "git",

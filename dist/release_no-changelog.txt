@@ -1,0 +1,27 @@
+2023.11.12
+
+Joomla editors-xtd plugin PagebreakGhsvs. Editor button to insert special accordion markers. 2023.11.12
+
+Joomla editor button. For pagebreakghsvs feature of system plugin plg_system_pagebreaksliderghsvs. Insert shortcodes into editor/article text that will be rendered to slides/accordions.
+
+### Download
+[plg_editors-xtd_pagebreakghsvs-2023.11.12.zip](https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs/raw/2023.11.12/dist/plg_editors-xtd_pagebreakghsvs-2023.11.12.zip)
+
+### Joomla-Target-Platform(s)
+3.&ast;, 4.&ast;, 5.&ast;
+
+### For the interested ones
+- Only Joomla 5 added.
+- Deutsche Beschreibung:
+- English Description:
+- [Compare releases 2023.02.09...2023.11.12](https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs/compare/2023.02.09...2023.11.12)
+- minimumJoomla: 3.9.10
+- maximumJoomla: 5.9999.9999
+- minimumPhp: 7.4.2
+- maximumPhp: 8.99999.99999
+- Checksum: `<sha256>51a7bad1f93f50ebccf8d52487c862878bf9d50285c66b81933e11163d1cf2e5</sha256>`
+- Readme: https://github.com/GHSVS-de/plg_editors-xtd_pagebreakghsvs#readme
+- Updates XML: https://raw.githubusercontent.com/GHSVS-de/upadateservers/master/plg_editors-xtd_pagebreakghsvs-update.xml
+- Last tests: PHP 8.0<br>PHP 8.1<br>Joomla 3.10<br>Joomla 4.2
+- Language files:
+- Requires: https://github.com/GHSVS-de/plg_system_pagebreaksliderghsvs/releases
